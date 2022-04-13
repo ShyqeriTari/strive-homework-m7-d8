@@ -1,0 +1,29 @@
+.bg-search{
+min-height: 100vh;
+}
+
+.input{
+  padding-top: 50px;
+}
+
+.app{
+  background: linear-gradient(0deg, rgba(157,157,157,0.8981967787114846) 0%, rgba(128,145,208,0.8981967787114846) 32%, rgba(98,156,232,0.9) 56%, rgb(233, 246, 248) 92%);
+}
+
+.wait{
+  width:30%;
+  margin-left: 35%;
+}
+
+.text-violet{
+  color: rgb(206, 183, 227);
+}
+
+.mar{
+  padding-left: 100px;
+  padding-top: 50px;
+}
+
+.font-25{
+  font-size: 30px;
+}
