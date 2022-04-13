@@ -16,7 +16,7 @@ interface SingleSongProps {
 
 const SingleSong = ({song}: SingleSongProps)=> {
     return(
-        <Col md={3} className="mb-3">
+        <Col sm={6} md={4} lg={3} className="mb-3">
        <Card style={{ width: '18rem' }}>
   <Card.Img variant="top" src={song.album.cover_medium} />
   <Card.Body>
