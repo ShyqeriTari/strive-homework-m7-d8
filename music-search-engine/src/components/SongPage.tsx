@@ -1,7 +1,7 @@
 import { Link, useParams } from "react-router-dom"
 import {useState, useEffect} from 'react'
 
-interface SongComponentProps {
+interface SongComponent {
   
     title: string,
     album:{
@@ -16,7 +16,7 @@ interface SongComponentProps {
 
 const SongPage = ()=> {
 
-  const [song, setSong] = useState<SongComponentProps | null>(null)
+  const [song, setSong] = useState<SongComponent | null>(null)
 
   const params = useParams()
 

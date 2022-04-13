@@ -1,7 +1,7 @@
 import { Col, Card, Button } from "react-bootstrap"
 import { Link } from "react-router-dom"
 
-interface SingleSongProps {
+interface SingleSongStructure {
     song: {
         title: string,
     album:{
@@ -14,7 +14,7 @@ interface SingleSongProps {
 }
   }
 
-const SingleSong = ({song}: SingleSongProps)=> {
+const SingleSong = ({song}: SingleSongStructure)=> {
     return(
         <Col sm={6} md={4} lg={3} className="mb-3">
        <Card style={{ width: '18rem' }}>
