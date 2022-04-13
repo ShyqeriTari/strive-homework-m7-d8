@@ -1,26 +1,28 @@
 import { Link, useParams } from "react-router-dom"
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
 
 interface SongComponent {
-  
-    title: string,
-    album:{
-      cover_medium: string
-    },
-    artist:{
-      name: string
-    },
-    rank: number
-  
+
+  title: string,
+  album: {
+    cover_medium: string
+  },
+  artist: {
+    name: string
+  },
+  rank: number
+
 }
 
-const SongPage = ()=> {
+const SongPage = () => {
 
   const [song, setSong] = useState<SongComponent | null>(null)
 
   const params = useParams()
 
-  const fetchSong = async () => {
+
+  useEffect(() => {
+    const fetchSong = async () => {
 
       try {
         let response = await fetch(
@@ -28,38 +30,36 @@ const SongPage = ()=> {
         )
         if (response.ok) {
           let data = await response.json()
-           
+
           setSong(data)
-        }else {
+        } else {
           alert('error in the request')
         }
       } catch (error) {
         console.log(error)
       }
     }
+    fetchSong()
+  }, [params.songId])
 
-    useEffect(()=> {
-        fetchSong()
-    }, [])
-
-    return(
-        <div className="bg-search mar d-flex" >
-         { song && <>
-          <Link to={"/"}>
-            <h2  style={{marginTop: "100px"}}>Back to Search page</h2>
-            <i className="bi bi-arrow-90deg-left font-25"></i>
-          </Link>
-         <div className="ml-5">
+  return (
+    <div className="bg-search mar d-flex" >
+      {song && <>
+        <Link to={"/"}>
+          <h2 style={{ marginTop: "100px" }}>Back to Search page</h2>
+          <i className="bi bi-arrow-90deg-left font-25"></i>
+        </Link>
+        <div className="ml-5">
           <h1>{song.title}</h1>
           <img src={song.album.cover_medium} alt="single song"></img>
           <h3>{song.artist.name}</h3>
           <h5>rank: {song.rank}</h5>
-          </div>
-         
-          </>
-          }
         </div>
-    )
+
+      </>
+      }
+    </div>
+  )
 }
 
 export default SongPage
